@@ -1,0 +1,10 @@
+Para acceder sin contraseña con ssh no he usado los comandos del guión, he usado unos comandos que utilizé
+en las practicas de ISE. Los comandos son los siguientes : ssh-keygen -b 4096 -t rsa
+							   ssh-copy-id 192.168.1.100
+
+Una vez he comprobado que me funciona (he adjuntado la captura de pantalla correspondiente al funcionamiento de este) he
+modificado el archivo /etc/crontab y le he añadido la siguiente línea,  para que me copie todo lo que hay en la máquina 1 
+(directorio /var/www/) en la máquina 2,  cada hora en el minuto 20 :
+ 20 * * * * alvaro rsync -avz -e ssh 192.168.1.100:/var/www/ /var/www
+lo muestro también en otra captura de pantalla. La comprobación de que funciona el crontab 
+se lo mostre al profesor en clase.
