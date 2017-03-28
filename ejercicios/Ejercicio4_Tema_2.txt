@@ -1,0 +1,13 @@
+Balanceadores software y hardware:
+Keep (hardware)
+BIG-IP (software y hardware)
+Incapsula (software)
+Snapt Balancer(Software)
+Barracuda Load Balancer(Hardware)
+Servidores de aplicaciones:
+Tuxedo(C++)
+Django-cms(Python)
+Lwan(C)
+Servidores de almacenamiento:
+Microsoft Azure
+OpenShift

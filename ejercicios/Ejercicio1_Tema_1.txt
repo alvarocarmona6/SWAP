@@ -1,0 +1,7 @@
+apache--> Servidor Web
+nginx--> Servidor Web (Se usa también para balancear la carga o como proxy inverso y incluye servicios de correo electrónico)
+thttpd--> Servidor Web (código libre, se caracteriza por ser simple, pequeño, portatil, rápido y seguro)
+cherokee--> Servidor Web (Está escrito completamente en C, puede usarse como un sistema embebido y soporta complementos para
+				aumentar su funcionalidades).
+node.js--> Es un intérprete Javascript del lado del servidor que se utiliza para el desarrollo de herramientas para aplicaciones
+		y servidores.

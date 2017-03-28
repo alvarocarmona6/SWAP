@@ -1,0 +1,6 @@
+Para realizar aplicaciones altamente disponibles, tenemos frameworks como PM2 para administrar clústeres de NodeJs.
+Phalcon que está basado en PHP5, y se implementa como una extensión de C para ofrecer un menor consumo de recursos y alto
+rendimiento. No hay necesidad de aprender o utilizar el lenguaje C , ya que la funcionalidad se brindan como clases PHP.
+Codelgniter (agil y flexible) cuenta con un amplio conjunto de librerías para tareas comúnmente necesarias, así como una interfaz sencilla y la estructura
+lógica para acceder a estas bibliotecas.Y por último mencionar a Yii que es un framework de desarrollo de aplicaciones libres
+para la web, de código abierto escrito en PHP5.
