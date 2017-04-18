@@ -8,4 +8,5 @@ Para instalar el balanceador nginx he usado los siguientes comandos : **sudo apt
 autoremove** y **sudo apt-get install nginx**. Una vez instalado en el archivo */etc/nginx/conf.d/default.conf* he eliminado el contenido que tenía y he añadido el siguiente: 
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica3/configuracion_nginx.png)
 
-Una vez configurado he comprobado su comportamiento con ab (Apache benchmark)
+Una vez configurado he comprobado su comportamiento con ab (Apache benchmark) *ab -c 200  -n 100000* donde c es la concurrencia y n las peticiones totales:
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica3/P3nginx.png)
