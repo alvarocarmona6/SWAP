@@ -5,4 +5,5 @@ funcionamiento. Para ello me he creado una maquina virtual nueva con ubuntu serv
 ## Nginx
 
 Para instalar el balanceador nginx he usado los siguientes comandos : **sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get
-autoremove** y **sudo apt-get install nginx**
+autoremove** y **sudo apt-get install nginx**. Una vez instalado en el archivo */etc/nginx/conf.d/default.conf* he eliminado el contenido que tenía y he añadido el siguiente: 
+![img]()
