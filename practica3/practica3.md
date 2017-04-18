@@ -20,5 +20,5 @@ Después de la configuración lanzamos el servicio con **sudo /usr/sbin/haproxy 
 Medimos su rendimiento con ab como en nginx (mismos parámetros) ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica3/P3haproxy.png) 
 
 
-##Comparación de los balanceadores
+## Comparación de los balanceadores
 Puedo decir que Haproxy es mejor que nginx ya que me ha tardado menos ( 53,923 segundos respecto a los 76,274 segundos del nginx ) con los mismos parámetros es decir he sometido a la misma carga los dos balanceadores.
