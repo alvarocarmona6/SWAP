@@ -24,7 +24,7 @@ Lo primero que he realizado es el script de cortafuegos con todas sus reglas en 
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_3.png)
 
 
-Una vez realizado el script lo ejecutamos y con el comando **sudo iptables -L -n -v ** comprobamos el estado de cortafuegos como vemos en la siguiente captura: 
+Una vez realizado el script lo ejecutamos y con el comando **sudo iptables -L -n -v** comprobamos el estado de cortafuegos como vemos en la siguiente captura: 
 
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_2.png)
 
