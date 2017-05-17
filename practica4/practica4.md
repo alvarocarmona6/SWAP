@@ -13,6 +13,8 @@ Activamos el sitio default--ssl y reiniciamos apache:
 **a2ensite default-ssl**
 **service apache2 reload**
 Una vez realizado todo esto comprobamos desde otra máquina virtual que a traves de /**curl -k https://ip_maquina/index.html** vemos que funciona(como se ve en la captura siguiente)
+
+
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_1.png)
 
 Una vez configurado he comprobado su comportamiento con curl viendo que cambia de máquina 1 a máquina 2.Con ab (Apache benchmark) medimos su rendimiento   **ab -c 200  -n 100000 IPbalanceador** donde c es la concurrencia y n las peticiones totales:
