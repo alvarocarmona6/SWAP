@@ -17,17 +17,18 @@ Una vez realizado todo esto comprobamos desde otra máquina virtual que a traves
 
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_1.png)
 
-Una vez configurado he comprobado su comportamiento con curl viendo que cambia de máquina 1 a máquina 2.Con ab (Apache benchmark) medimos su rendimiento   **ab -c 200  -n 100000 IPbalanceador** donde c es la concurrencia y n las peticiones totales:
-![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica3/P3nginx.png)
+## Configuración del cortafuegos
+Lo primero que he realizado es el script de cortafuegos con todas sus reglas en la siguiente captura de pantalla se puede apreciar claramente: 
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_3.png)
+Una vez realizado el script lo ejecutamos y con el comando **sudo iptables -L -n -v ** comprobamos el estado de cortafuegos como vemos en la siguiente captura: 
 
-Para poder utilizar haproxy hay que parar nginx con **sudo systemctl stop nginx**
-
-## Haproxy
-
-Instalamos haproxy con el siguiente comando : **sudo apt-get install haproxy** , una vez instalado correctamente cambio el archivo de  configuración */etc/haproxy/haproxy.cfg y lo dejo así: ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica3/configuracion_haproxy.png)
-Después de la configuración lanzamos el servicio con **sudo /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg** y utilizamos el comando curl para ver que funciona correctamente.
-Medimos su rendimiento con ab como en nginx (mismos parámetros) ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica3/P3haproxy.png) 
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_2.png)
 
 
-## Comparación de los balanceadores
-Puedo decir que Haproxy es mejor que nginx ya que me ha tardado menos ( 53,923 segundos respecto a los 76,274 segundos del nginx ) con los mismos parámetros es decir he sometido a la misma carga los dos balanceadores.
+
+Una vez comprobado el funcionamiento utilizamos crontab para cada vez que la máquina se reinicia active el cortafuegos:
+
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_4.png)
+
+
+
