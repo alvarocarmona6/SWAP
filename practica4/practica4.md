@@ -12,7 +12,7 @@ Y agregamos estas lineas debajo de donde pone SSLEngine on:
 Activamos el sitio default--ssl y reiniciamos apache:
 **a2ensite default-ssl**
 **service apache2 reload**
-Una vez realizado todo esto comprobamos desde otra máquina virtual que a traves de /**curl -k https://ip_maquina/index.html** vemos que funciona(como se ve en la captura siguiente)
+Una vez realizado todo esto comprobamos desde otra máquina virtual que a traves de **curl -k https://ip_maquina/index.html** vemos que funciona(como se ve en la captura siguiente)
 
 
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_1.png)
