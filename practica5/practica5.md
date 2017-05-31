@@ -11,21 +11,15 @@ y vamos siguiendo el guión con los siguientes comandos:
 **mysql> create table datos(nombre varchar(100),tlf int);**
 **mysql> show tables;**
 
-
 +---------------------+
-
 
 | Tables_in_contactos |
 
-
 +---------------------+
-
 
 | datos |
 
-
 +---------------------+
-
 
 1 row in set (0,00 sec)
 
@@ -33,11 +27,18 @@ y vamos siguiendo el guión con los siguientes comandos:
 
 
 **mysql> select * from datos;**
+
+
 +---------+-----------+
+
 | nombre | tlf |
+
 +---------+-----------+
+
 | pepe | 95834987 |
+
 +---------+-----------+
+
 3 rows in set (0,00 sec)
 
 ## Hacer una consulta
