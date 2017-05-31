@@ -98,7 +98,7 @@ nos saldrá algo como la siguiente captura:
 
 Una vez realizado el script lo ejecutamos y con el comando **sudo iptables -L -n -v** comprobamos el estado de cortafuegos como vemos en la siguiente captura: 
 
-![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_2.png)
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica5/captura_2.png)
 
 volvemos a la máquina esclavo a mysql y ejecutamos lo siguiente:
 
@@ -117,7 +117,7 @@ no tiene ningún problema para replicar la información, nos vamos al esclavo y 
 siguiente orden:
 **mysql> SHOW SLAVE STATUS\G**
 revisamos si el valor de la variable “Seconds_Behind_Master” es distinto de “null” como en la siguiente captura:
-![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_5.png)
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica5/captura_5.png)
 
 
 Una vez comprobado el funcionamiento utilizamos crontab para cada vez que la máquina se reinicia active el cortafuegos:
