@@ -67,18 +67,57 @@ Como habíamos bloqueado las tablas, debemos desbloquearlas (quitar el “LOCK�
 **mysql> UNLOCK TABLES;**
 Ya podemos ir a la máquina esclavo (maquina2, secundaria) para copiar el archivo
 .SQL con todos los datos salvados desde la máquina principal (maquina1):
-**scp maquina1:/tmp/ejemplodb.sql /tmp/**
+**scp maquina1:/tmp/ejemplodb.sql /tmp/**.
 Ahora nos vamos a la máquina 2 y ejecutamos lo siguiente:
 **mysql> CREATE DATABASE ‘ejemplodb’;** y
 **mysql -u root -p ejemplodb < /tmp/ejemplodb.sql**
 
-![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_3.png)
+## Replicación de BD mediante una configuración maestro-esclavo
+
+Para automatizar todo el proceso anterior debemos hacer una configuración maestro-esclavo. Para ello nos vamos a la máquina 1 (maestro)
+y editamos el fichero **/etc/mysql/mysql.conf.d/mysqld.cnf**, comentamos el siguiente parámetro **#bind-address 127.0.0.1**, descomentamos la siguiente línea **log_error = /var/log/mysql/error.log**, descomentamos el **server-id = 1** y por último descomentamos **log_bin = /var/log/mysql/bin.log**. Guardamos el documento y reiniciamos el servicio:
+**/etc/init.d/mysql restart**, una vez hecho estó configuramos al esclavo que sería exactamente igual pero con **server-id=2**.
+Cuando tengamos todo esto vamos al maestro y entramos en mysql y ejecutamos lo siguiente:
+**mysql> CREATE USER esclavo IDENTIFIED BY 'esclavo';**
+
+**mysql> GRANT REPLICATION SLAVE ON *.* TO 'esclavo'@'%' IDENTIFIED BY 'esclavo';**
+
+**mysql> FLUSH TABLES;**
+
+**mysql> FLUSH TABLES WITH READ LOCK;**
+
+Para finalizar con la configuración en el maestro, obtenemos los datos de la base de
+datos que vamos a replicar para posteriormente usarlos en la configuración del
+esclavo:
+**mysql> SHOW MASTER STATUS;**
+
+nos saldrá algo como la siguiente captura:
+
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica5/captura_4.png)
 
 
 Una vez realizado el script lo ejecutamos y con el comando **sudo iptables -L -n -v** comprobamos el estado de cortafuegos como vemos en la siguiente captura: 
 
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_2.png)
 
+volvemos a la máquina esclavo a mysql y ejecutamos lo siguiente:
+
+**mysql> CHANGE MASTER TO MASTER_HOST='192.168.31.200',
+MASTER_USER='esclavo', MASTER_PASSWORD='esclavo',
+MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=501,
+MASTER_PORT=3306;**
+donde MASTER_LOG_FILE colocamos lo que viene en FILE MASTER_LOG_POS lo que viene en position y la ip la del maestro.
+
+Ahora arrancamos al esclavo en mysql con : **mysql> START SLAVE;**
+Por último, volvemos al maestro y volvemos a activar las tablas para que puedan
+meterse nuevos datos en el maestro:
+**mysql> UNLOCK TABLES;**
+Ahora, si queremos asegurarnos de que todo funciona perfectamente y que el esclavo
+no tiene ningún problema para replicar la información, nos vamos al esclavo y con la
+siguiente orden:
+**mysql> SHOW SLAVE STATUS\G**
+revisamos si el valor de la variable “Seconds_Behind_Master” es distinto de “null” como en la siguiente captura:
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_5.png)
 
 
 Una vez comprobado el funcionamiento utilizamos crontab para cada vez que la máquina se reinicia active el cortafuegos:
