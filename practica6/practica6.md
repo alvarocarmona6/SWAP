@@ -31,10 +31,24 @@ ejecutar la orden:
 Anotaremos el correspondiente al dispositivo RAID que hemos creado. Ahora ya
 podemos añadir al final del archivo **/etc/fstab** la línea para que monte automáticamente
 el dispositivo RAID.
+Finalmente, una vez que esté funcionando el dispositivo RAID, podemos simular un
+fallo en uno de los discos:
+**sudo mdadm --manage --set-faulty /dev/md0 /dev/sdb**
+como se puede ver en la siguiente captura (Failed Devices:1):
 
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica6/captura_1.png)
 
+También podemos retirar “en caliente” el disco que está marcado como que ha fallado:
+**sudo mdadm --manage --remove /dev/md0 /dev/sdb**
 
-![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_4.png)
+(Failed Devices:0):
 
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica6/captura_2.png)
+
+Y por último, podemos añadir, también “en caliente”, un nuevo disco que vendría a
+reemplazar al disco que hemos retirado:
+**sudo mdadm --manage --add /dev/md0 /dev/sdb**
+En esta captura se puede apreciar el porcentaje de Rebuild Status
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica6/captura_3.png)
 
 
