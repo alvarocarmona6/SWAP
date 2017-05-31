@@ -44,17 +44,33 @@ y vamos siguiendo el guión con los siguientes comandos:
 ## Hacer una consulta
 Para hacer una consulta ejecutaremos los siguientes comandos dentro de mysql:
 
-mysql> use contactos;
+**mysql> use contactos;**
 
-mysql> select * from datos;
-mysql> describe datos;
+**mysql> select * from datos;**
+
+**mysql> describe datos;**
+
 y nos saldrá lo que aparece en la siguiente captura: 
 
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica5/captura_1.png)
 
-## Configuración del cortafuegos
-Lo primero que he realizado es el script de cortafuegos con todas sus reglas en la siguiente captura de pantalla se puede apreciar claramente: 
-
+## Replicar una BD MySQL con mysqldump
+MySQL ofrece la una herramienta para clonar las BD que tenemos en nuestra
+maquina. Esta herramienta es mysqldump.
+Lo primero que tenemos que hacer es entrar en mysql y ejecutar lo siguiente :
+**mysql> FLUSH TABLES WITH READ LOCK;**
+para evitar que se acceda a la base de datos.
+Ahora ya sí podemos hacer el mysqldump para guardar los datos. En el servidor
+principal (maquina1) hacemos:
+**mysqldump ejemplodb -u root -p > /tmp/ejemplodb.sql**
+Como habíamos bloqueado las tablas, debemos desbloquearlas (quitar el “LOCK”):
+**mysql> UNLOCK TABLES;**
+Ya podemos ir a la máquina esclavo (maquina2, secundaria) para copiar el archivo
+.SQL con todos los datos salvados desde la máquina principal (maquina1):
+**scp maquina1:/tmp/ejemplodb.sql /tmp/**
+Ahora nos vamos a la máquina 2 y ejecutamos lo siguiente:
+**mysql> CREATE DATABASE ‘ejemplodb’;** y
+**mysql -u root -p ejemplodb < /tmp/ejemplodb.sql**
 
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_3.png)
 
