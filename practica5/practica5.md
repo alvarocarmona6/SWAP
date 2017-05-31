@@ -6,10 +6,10 @@
 Para crear una base de datos lo primero que tenemos que hacer es entrar en mysql con **mysql -uroot -p**
 
 y vamos siguiendo el guión con los siguientes comandos:
-mysql> create database contactos;
-mysql> use contactos;
-mysql> create table datos(nombre varchar(100),tlf int);
-mysql> show tables;
+**mysql> create database contactos;**
+**mysql> use contactos;**
+**mysql> create table datos(nombre varchar(100),tlf int);**
+**mysql> show tables;**
 +---------------------+
 | Tables_in_contactos |
 +---------------------+
@@ -17,10 +17,10 @@ mysql> show tables;
 +---------------------+
 1 row in set (0,00 sec)
 
-mysql> insert into datos(nombre,tlf) values ("pepe",95834987);
+**mysql> insert into datos(nombre,tlf) values ("pepe",95834987);**
 
 
-mysql> select * from datos;
+**mysql> select * from datos;**
 +---------+-----------+
 | nombre | tlf |
 +---------+-----------+
