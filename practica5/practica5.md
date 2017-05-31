@@ -119,10 +119,14 @@ siguiente orden:
 revisamos si el valor de la variable “Seconds_Behind_Master” es distinto de “null” como en la siguiente captura:
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica5/captura_5.png)
 
+Para comprobar que todo funciona, debemos ir al maestro e introducir nuevos datos a
+la base de datos. A continuación vamos al esclavo para revisar si la modificación se ha
+reflejado en la tabla modificada en el maestro como podemos ver en las siguientes capturas.
+Introduciendo datos en maestro: 
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica5/captura_7.png)
+Viendo resultados en esclavo:
+![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica5/captura_6.png)
 
-Una vez comprobado el funcionamiento utilizamos crontab para cada vez que la máquina se reinicia active el cortafuegos:
-
-![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica4/captura_4.png)
 
 
 
