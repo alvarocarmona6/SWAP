@@ -96,8 +96,6 @@ nos saldrá algo como la siguiente captura:
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica5/captura_4.png)
 
 
-![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica5/captura_2.png)
-
 volvemos a la máquina esclavo a mysql y ejecutamos lo siguiente:
 
 **mysql> CHANGE MASTER TO MASTER_HOST='192.168.31.200',
@@ -122,6 +120,7 @@ la base de datos. A continuación vamos al esclavo para revisar si la modificaci
 reflejado en la tabla modificada en el maestro como podemos ver en las siguientes capturas.
 Introduciendo datos en maestro: 
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica5/captura_7.png)
+
 Viendo resultados en esclavo:
 ![img](https://github.com/alvarocarmona6/SWAP/blob/master/practica5/captura_6.png)
 
