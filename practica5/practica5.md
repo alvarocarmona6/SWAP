@@ -10,11 +10,23 @@ y vamos siguiendo el guión con los siguientes comandos:
 **mysql> use contactos;**
 **mysql> create table datos(nombre varchar(100),tlf int);**
 **mysql> show tables;**
+
+
 +---------------------+
+
+
 | Tables_in_contactos |
+
+
 +---------------------+
+
+
 | datos |
+
+
 +---------------------+
+
+
 1 row in set (0,00 sec)
 
 **mysql> insert into datos(nombre,tlf) values ("pepe",95834987);**
